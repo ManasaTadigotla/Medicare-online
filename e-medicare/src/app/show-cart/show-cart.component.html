@@ -1,0 +1,51 @@
+<div class="container-fluid align-middle">
+    <div class="table mt-5">
+        <table class="table align-middle"  *ngIf="isNotEmptyCart">
+                                   
+      <tr class="bg-primary">
+        <th>image</th>
+            <th>name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Quantity</th> 
+            <th>SubTotal</th>  
+           
+           
+        </tr>
+        
+        <tr *ngFor="let cartItem of allCartItems">            
+            <td><img class="img-small" (click)="viewProductDetails(cartItem.product.code)" [src]="cartItem.product.image" ></td>
+            <td>{{cartItem.product.name}}</td>
+            <td>{{cartItem.product.brand}}</td>
+            <td>{{cartItem.product.price}}</td>
+            <td>{{cartItem.quantity}}</td>
+            <td>{{cartItem.cartValue}}</td>           
+            <td>
+                <button class="btn btn-warning" visibility=hidden (click)="editCart(cartItem.product.code)" >Edit</button>                
+                <button class="btn btn-warning" visibility=hidden   (click)="deleteItem(cartItem.id)" >delete</button>                
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div>
+                    Total :{{totalCartValue}}
+                </div>
+               
+            </td>
+            <td colspan="6" >
+                <button style="align-self: flex-end;" class="btn btn-info" (click)="proceedToPayment()" >Proceed</button> 
+            </td>
+        </tr>
+        
+    </table>
+    <div class="err-info ">
+        {{msg}}
+    </div>
+    <div>
+        <a class="btn btn-link" (click)="goToProductsPage()" *ngIf="shop">Shop Now</a>
+    </div>
+    <div>
+        
+    </div>
+    </div>
+</div>

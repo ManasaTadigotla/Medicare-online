@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <br>
+            <div *ngFor="let category Of categoryList">
+              <a routerLink="{{category.id}}" >{{category.name}}</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    Products
+                </div>
+                <div>                    
+                </div>
+                <div class="card-body">
+                    <div class="table table-bordered">
+                        <table class="table" width=100%>
+                                                   
+                      <tr class="bg-primary">
+                        <th>image</th>
+                            <th>name</th>
+                            <th>Description</th>
+                            <th>Brand</th>
+                            <th>Availability</th>
+                            <th>Price</th>
+                            <th>Status</th>                
+                        </tr>
+                        <!--
+                        <tr *ngFor="let ques of productsList">
+                            <td>{{ques.subject}}</td>
+                            <td>{{ques.id}}</td>
+                            <td>{{ques.desc}}</td>
+                            <td>{{ques.firstoption}}</td>
+                            <td>{{ques.secondoption}}</td>
+                            <td>{{ques.thirdoption}}</td>
+                            <td>{{ques.correctanswer}}</td>
+                            <td [width]="100"><a routerLink="#" class="btn btn-info" >Modify</a>
+                            &nbsp;&nbsp;||
+                            <input type="button" value="Delete" class="btn btn-danger" (click)="RemoveQuestion(ques.id)">
+                            </td>
+                        </tr>
+                        -->
+                    </table>
+                    </div>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

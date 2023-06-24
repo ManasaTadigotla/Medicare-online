@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">  
+        </div>     
+        <div class="col-md-9">
+            <div>
+                <div>
+                    Products
+                </div>
+                <div>                    
+                </div>
+                <div class="row">
+                    <div  class="col-sm-6 mb-3 mb-sm-0" *ngFor="let product of productList">
+                        <div class="card" style="width: 18rem;" >
+                            <div class="card-header"style="height:6rem;">
+                                <img class="card-img-top" style="height:6rem;" (click)="viewProductDetails(product.id)" [src]="product.image" alt="product.name">
+                            </div>
+                            <div class="card-body">
+                                ProductName: {{product.name}}
+                                <br>
+                                <!--
+                                Description: {{product.desc}}
+                                <br>
+                                Brand: {{product.brand}}
+                                <br>
+                                -->
+                                MRP: Rs {{product.price}}
+                                <br>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-info" 
+                                (click)="viewProductDetails(product)" >View Details</button>   
+                            </div>
+                        </div>
+                     </div>
+                    <div *ngIf="false">
+                        <table class="table table-success table-striped" width=100%>
+                                                   
+                      <tr class="bg-primary">
+                        <th>image</th>
+                            <th>name</th>
+                            <th>Description</th>
+                            <th>Brand</th>
+                            <th>Price</th>
+                            <th>Rating</th> 
+                            <th>Quantity</th>               
+                        </tr>
+                        
+                        <tr *ngFor="let product of productList">
+                            <td><img class="img-small" (click)="viewProductDetails(product.id)" [src]="product.image" alt="product.name"></td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.desc}}</td>
+                            <td>{{product.brand}}</td>
+                            <td>{{product.price}}</td>
+                            <!--
+                            <td>{{product.isActive}}</td>
+                            <a class="btn btn-info" *ngIf="product.requiredQuantity>0?true:false" (click)="addProductsToCart(product,product.requiredQuantity)" >Add</a> 
+                             <a class="btn btn-info" *ngIf="product.requiredQuantity==0?false:true"  (click)="plusProduct(product)">+</a>  
+                                <a class="btn btn-info" *ngIf="product.requiredQuantity==1 || product.requiredQuantity==0?false:true" (click)="minusProduct(product)">-</a>                                                    
+                            -->
+                            <td>{{product.rating}}</td>  
+                            <td><input type="number" min=0 max="10" placeholder=0 class="input-text-small" id="quantity" [(ngModel)]="product.requiredQuantity" (change)="onQuantityChange($event, product.requiredQuantity)"></td>                          
+                            <td>
+                                <button class="btn btn-info" visibility=hidden [disabled]="product.requiredQuantity==0"  (click)="addProductsToCart(product)" >Add</button> 
+                               
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div>
+                                    Total Items: {{cartLength}}
+                                </div>
+                               
+                            </td>
+                            <td colspan="6" >
+                                <button style="align-self: flex-end;" class="btn btn-info" [disabled]="!isGoToCartVisible" >Go To Cart</button> 
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    <div class="err-info">
+                        {{msg}}
+                    </div>
+                    <div>
+                        
+                    </div>
+                    </div>
+                    
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

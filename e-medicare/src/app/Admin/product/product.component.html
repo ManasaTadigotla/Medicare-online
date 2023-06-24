@@ -1,0 +1,50 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <a routerLink="/addnewproduct">Add New</a>
+                </div>
+                <div class="card-body">
+                    <input type="text" [(ngModel)]="productName"  class="form-control" (ngModelChange)="searchProducts()"  placeholder="Serach product by name" />
+                    <table class="table table-success table-striped">
+                        <thead>
+                            <th>image</th>
+                            <th>Name</th>
+                            <th>Brand</th>
+                            <th>Status</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Actions</th>
+                        </thead>
+                        <tbody>
+                            
+                            <tr *ngFor="let product of productList">
+                                <td><img class="img-small" [src]="product.image" alt="product.name"> </td>
+                                <td>{{product.name}}</td>
+                                <td>{{product.brand}}</td>
+                                <td><span *ngIf="product.isActive" style="color: green;">Active</span><span *ngIf="!product.isActive" style="color: orange;">InActive</span></td>
+           <!--                     
+     <td> <mat-slide-toggle color="primary"></mat-slide-toggle></td>
+       -->
+
+                                <td>{{product.availableQuantity}}</td>
+                                <td>{{product.price}}</td>
+                                <td>{{product.category.name}}</td>
+                                <td><a class="btn btn-info" routerLink="/adminproduct/{{product.code}}">Edit</a>&nbsp;
+                                    <input type="button" class="btn btn-warning" value="Delete" (click)="deleteProduct(product.code)">
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

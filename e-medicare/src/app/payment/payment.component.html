@@ -1,0 +1,27 @@
+<br>
+<div class="container-fluid mt-5">
+    <div class="row g-3 " *ngIf="paymentpage">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="">
+                Total Amount:&nbsp;{{totalAmount}}
+            </div>
+            <div>
+                <select class="form-select" aria-label="Default select example">           
+                    <option  *ngFor="let mode of paymentMethods" value="{{mode}}">{{mode}}</option>            
+                  </select>
+            </div>
+            <div class="col-md-4">
+                <button class="btn-warning" (click)="gotoConfirmation()">Pay</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="isPaid" >
+        <div class="err-info">
+            <h4>Congratulations!!your orderr palced Successfully.</h4><br>
+             go to <a routerLink="/user">Home</a> to continueShopping
+        </div>
+    </div>
+</div>

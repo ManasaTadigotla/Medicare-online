@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush" *ngFor="let category Of categoryList">
+                  <li class="list-group-item"><a routerLink="categories/{{category.id}}">{{category.name}}</a></li>                  
+                </ul>
+              </div>
+        </div>
+        <div class="col-md-8">        
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <app-offers></app-offers>
+                   </div>
+                </div>
+                <div class="card-body">
+                    <h3>Most Viewd products</h3>                   
+                        <table class="table" width=100%>                                                   
+                      <tr>
+                        <td  *ngFor="let product Of topProducts">
+                            <div class="card">  
+                                <img class="img-fixed" [src]="product.image" alt="product.name"> 
+                                <div class="card-body">
+                                    <h5 class="card-title">{{product.name}}</h5>
+                                    <p class="card-text">{{product.description}}</p>
+                                    <a routerLink="/categories/{{product.category.id}}" class="btn btn-primary">>></a>
+                                  </div>
+                            </div>
+                        </td>
+                           
+                        </tr>
+                        </table>
+                   
+            </div>
+
+            
+        </div>
+        
+    </div>
+</div>

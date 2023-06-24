@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row mt-5" >  
+        <div class="col-md-4">
+            <form #formCategory="ngForm">
+                <div class="card">
+                    <div class="card-header center">
+                        Add/Save Category
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label id="foCategoryName"  class="form-label" >Name : </label>
+                                <input type="text"  name="categoryName" id="foCategoryName" class="form-control"
+                                 #cname="ngModel" [(ngModel)]="categoryName" placeholder="Enter Category Name" minlength="3" />
+                                <span class="erroinfo" *ngIf="cname.touched && cname.invalid">
+                                    Category name shouldnt be empty
+                                </span>
+                            </div>
+                        </div>
+                        <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="foCategoryDesc"  class="form-label">Description : </label>
+                                    <input type="text" id="foCategoryDesc" name="categoryDesc" class="form-control" #cdesc="ngModel"
+                                     [(ngModel)]="categoryDesc" placeholder="Enter Description" minlength="10"/>
+                                    <span class="erroinfo" *ngIf="cdesc.touched && cdesc.invalid">
+                                       Please provide some Description..
+                                    </span>
+                                </div>
+                            </div>
+                            <br>
+                                <div class="row">
+                                    <div class="col-md-12" style="text-align: center;">
+                                            <button type="button"  class="btn btn-info" *ngIf="!isEdited" [disabled]="formCategory.form.invalid" (click)="addNewCategory(formCategory)" >Add</button>
+                                            <button type="button"  class="btn btn-warning" *ngIf="isEdited" (click)="saveCategory()">Save</button>
+                                            
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </form>
+            
+           <div class="err-info">
+            {{msg}}
+           </div>
+           
+        </div>         
+    <div class="col-md-6">
+        <div class="table" *ngIf="!isEdited">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let category of categoryList">
+                    <td>{{category.name}}</td>
+                    <td>{{category.description}}</td>
+                    <td><input type="button"class="btn btn-info" (click)="onEditCategory(category.id,category.name,category.description)" value="Edit" >&nbsp;
+                      <input type="button" class="btn btn-danger" (click)="deleteCategory(category.id)" value="Delete" >
+                    </td>
+                </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+        </div>
+</div>

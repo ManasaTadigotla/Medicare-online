@@ -1,0 +1,51 @@
+<p>register-user works!</p>
+<div class="container-fluid">
+    <div class="row mt-5" > 
+        <div class="col-md-4">
+            
+        </div> 
+        <div class="col-md-4">
+          <form [formGroup] = "NewUser" (ngSubmit)="createUser(NewUser)">
+            
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" class="form-control">
+           <span class="errorinfo" *ngIf="NewUser.controls.firstName.touched && NewUser.controls.firstName.invalid">
+            Please provide firstName having minimun 5 charecters
+           </span>
+            <br>
+            
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control">
+           <span class="errorinfo" *ngIf="NewUser.controls.firstName.touched && NewUser.controls.lastName.invalid">
+            Please provide lastName having minimun 5 charecters
+           </span>
+            <br>
+            <label>phone</label>
+            <input type="number" formControlName="phone" class="form-control"><br>
+            <span class="errorinfo" *ngIf="NewUser.controls.phone.touched && NewUser.controls.phone.invalid">
+                Phone number must have 10 digits
+               </span>
+            <label>Password</label>
+            <input type="text" formControlName="password" class="form-control">
+           <span class="errorinfo" *ngIf="NewUser.controls.password.touched && NewUser.controls.password.invalid">
+            Password must have minimun 5 charecters
+           </span>
+            <br>
+            <label>email</label>
+            <input type="email" formControlName="email" class="form-control">            
+            <span class="errorinfo" *ngIf="NewUser.controls.email.touched && NewUser.controls.email.invalid">
+                Please enter valid email
+               </span>
+               <br>
+            <label>Location</label>
+            <select formControlName="location" class="form-control ">
+                <option value="-1">Select Location</option>
+                <option *ngFor="let loc of locations" value="{{loc}}">{{loc}}</option>
+            </select><br>
+            <div class="form-control">
+                <input type="submit" class="btn-success" value="Register" [disabled]="NewUser.invalid" >
+            </div>
+          </form>
+        </div>
+        </div>
+</div>

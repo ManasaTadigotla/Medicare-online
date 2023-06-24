@@ -1,0 +1,19 @@
+.img-small{
+    height: 50px;
+    width: 50px;
+}
+.input-text-small{
+    width: 50px;
+    border: 0cap;
+
+
+}
+
+.input-change-qty{
+    visibility: visible;
+    
+    
+}
+.input-zero-qty{
+    visibility: hidden;
+}

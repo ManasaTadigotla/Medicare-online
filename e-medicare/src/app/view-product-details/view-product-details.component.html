@@ -1,0 +1,26 @@
+
+<div class="card" *ngIf="product">
+    <div class="card-header">
+        <img class="img-small" [src]="product.image" alt="product.name">
+    </div>
+    <div class="card-body">
+        ProductName: {{product.name}}
+        <br>
+        Description: {{product.desc}}
+        <br>
+        Brand: {{product.brand}}
+        <br>
+        MRP: Rs {{product.price}}
+        <br>
+        Qty:<input type="number" min=1 max=10 placeholder=0 class="input-text-small" id="quantity" [(ngModel)]="product.requiredQuantity" >
+        <br>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-link" (click)="continueShopping()" >Continue Shopping</a>
+        &nbsp;&nbsp;
+        <button class="btn btn-info" *ngIf="!isAdded && product.requiredQuantity>0" (click)="addProductsToCart(product,product.requiredQuantity)">Add To Cart</button>
+        &nbsp;&nbsp;
+        <button class="btn btn-info" (click)="checkOut()" >CheckOut</button>
+         
+    </div>
+</div>

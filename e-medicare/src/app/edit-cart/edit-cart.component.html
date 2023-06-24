@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 mt-5">
+            <div class="card">
+                <div class="card-body mt-5">
+                    ProductName: {{cartItem.product.name}}
+                    <br>
+                    Brand: {{cartItem.product.brand}}
+                    <br>
+                    MRP: Rs {{cartItem.product.price}}
+                    <br>
+                    Qty:<input type="number" min=1 max="10" placeholder=0 class="input-text-small" id="quantity" [(ngModel)]="cartItem.quantity" >
+                    <br>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-info" 
+                         (click)="saveProductsToCart(cartItem.id,cartItem.quantity)">save</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

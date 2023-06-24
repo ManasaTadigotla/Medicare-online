@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row mt-3" > 
+        <div class="col-md-4">
+
+        </div> 
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header center">
+                    Product Information Form
+                </div>
+                <div class="card-body">
+                    <form [formGroup] = "NewProduct" (ngSubmit)="addProduct(NewProduct)">
+           
+                        Category:
+                        <select formControlName="categoryId" class="form-control" >
+                            <option value="-1">Select Category</option>
+                            <option *ngFor="let category of categoryList" value="{{category.id}}" >{{category.name}}</option>
+                        </select> 
+                         <br />           
+                        Product Name:
+                        <input type="text"  formControlName="name" placeholder="Product Name" class="form-control" />                
+                        <br />
+                        Brand:
+                        <input type="text"  formControlName="brand" class="form-control"  />                
+                        <br />
+                        Active: &nbsp;<input type="checkbox" formControlName="isActive"  />
+                        <br>
+                        <br />
+                        Availability:
+                        <input type="number" min="0" formControlName="availableQuantity" class="form-control" value="NewProduct.availableQuantity" />
+                        <br />
+                        Price:
+                        <input type="number" min="0" formControlName="price" class="form-control" />
+                        <br />             
+                       Image:
+                        <select formControlName="image" class="form-control" value="NewProduct.image" >
+                            <option value="-1">Select Image</option>
+                            <option *ngFor="let image of images" value="{{image}}" >{{image}}</option>
+                        </select>
+                        <br />
+                        
+                        <div>                    
+                            <input type="submit"  value="Add"  class="btn btn-success" />
+                        </div>
+                        <div [innerHTML]="msg">
+                            
+                        </div>
+                    </form>
+        
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>

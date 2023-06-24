@@ -1,0 +1,37 @@
+<!--
+<div class="container-fluid">
+    <div *ngFor="let offer Of offers ">
+        <img src="offer.imageUrl" alt="offer.name">
+           
+    </div>
+</div>
+-->
+<div class="container-fluid">
+<ngb-carousel *ngIf="offers">
+	<ng-template ngbSlide *ngFor="let offer Of offers">
+		<div class="div-carousel">
+			<img [src]="offer.imageUrl" alt="offer.name" (click)="onSelectOffer()" />
+		</div>		
+	</ng-template>
+    <!--
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img [src]="offers[1].imageUrl" alt="Random second slide" />
+		</div>
+		<div class="carousel-caption">
+			<h3>Second slide label</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+	</ng-template>
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img [src]="offers[2].imageUrl" alt="Random third slide" />
+		</div>
+		<div class="carousel-caption">
+			<h3>Third slide label</h3>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+		</div>
+	</ng-template>
+-->
+</ngb-carousel>
+</div>
