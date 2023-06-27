@@ -1,6 +1,7 @@
 package com.medicare.emedicines.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,14 @@ public class CategoryController {
 	@GetMapping("/productsbycategory/{categoryId}")
 	public List<Product> getProductsByCategoryId(@PathVariable Long categoryId)
 	{
-		return categoryRepository.findById(categoryId).get().getProducts();
+		if(categoryRepository.existsById(categoryId))
+		{
+			return categoryRepository.findById(categoryId).get().getProducts();
+		}
+		else 
+		{
+			throw new NoSuchElementException("No category exist with given id");
+		}
 	}
 	
 	
