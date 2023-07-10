@@ -14,9 +14,10 @@ export class EditCartComponent implements OnInit{
    isAdded:boolean=false;
    productAdded!:any;
   constructor(private aroute:ActivatedRoute,
-    private productServ:ProductService,
+    //private productServ:ProductService,
     private cartServ:CartService,
-    private router:Router){}
+    //private router:Router
+    ){}
 
   ngOnInit(): void {
     const idVal= this.aroute.snapshot.params['id'];

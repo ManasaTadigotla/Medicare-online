@@ -41,7 +41,7 @@ export class EditProductComponent implements OnInit {
     availability: this.builder.control('', Validators.required), 
     price: this.builder.control('', Validators.required), 
     category: this.builder.control('', Validators.required), 
-    isActive: this.builder.control('', Validators.required)
+    isActive: this.builder.control( Validators.required)
 });
   
 

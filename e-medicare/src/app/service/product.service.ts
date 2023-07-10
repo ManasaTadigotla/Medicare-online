@@ -35,7 +35,7 @@ addNewProduct(categoryId:number, product:Product):Observable<Product>
 }
 updateProductById(product:any):Observable<any>
 {
-  return this.http.put("http://localhost:8188/product/update",product);
+  return this.http.put("http://localhost:8188/product/update/"+product.id,product);
 }
 deleteProduct(productId:number):Observable<any>
 {

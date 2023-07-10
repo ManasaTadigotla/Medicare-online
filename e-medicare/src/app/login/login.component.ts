@@ -24,7 +24,7 @@ export class LoginComponent {
 
   CheckUserDetails()
   {
-    if(this.phone==1234 && this.pswd=="123")
+    if(this.phone==9876543210 && this.pswd=="123")
     {
       sessionStorage.setItem('user', this.phone.toString());
       //isNavbarVisiableAdmin:boolean=false;

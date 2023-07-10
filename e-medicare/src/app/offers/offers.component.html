@@ -7,10 +7,10 @@
 </div>
 -->
 <div class="container-fluid">
-<ngb-carousel *ngIf="offers">
-	<ng-template ngbSlide *ngFor="let offer Of offers">
+<ngb-carousel *ngIf="offers" class="carousel slide">
+	<ng-template ngbSlide *ngFor="let offer Of offers" class="">
 		<div class="div-carousel">
-			<img [src]="offer.imageUrl" alt="offer.name" (click)="onSelectOffer()" />
+			<img class="d-block h-100 w-100" [src]="offer.imageUrl" alt="offer.name" (click)="onSelectOffer()" />
 		</div>		
 	</ng-template>
     <!--

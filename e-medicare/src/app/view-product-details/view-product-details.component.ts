@@ -51,7 +51,7 @@ export class ViewProductDetailsComponent implements OnInit {
       alert("plz login first");
      
        sessionStorage.setItem("previousUrl",this.router.url);
-       alert(sessionStorage.getItem("previousUrl"));
+       //alert(sessionStorage.getItem("previousUrl"));
       console.log(this.router.url);
       this.router.navigateByUrl('/login');
     }
